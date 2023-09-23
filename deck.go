@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"time"
 )
 
 type card struct{
@@ -26,6 +28,16 @@ func newDeck(includeJoker bool) deck {
 	// 	cards = append(cards, "Z", "Z")
 	// }
 	return cards
+}
+
+func (d deck)shuffle() {
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
+	for i := range d {
+		newPosition := r.Intn(len(d)-1)
+		d[newPosition], d[i] = d[i], d[newPosition]
+	}
 }
 
 func deal(d deck, handSize int) {
