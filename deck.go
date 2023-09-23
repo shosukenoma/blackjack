@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type card struct{
 	suit string
@@ -19,10 +21,21 @@ func newDeck(includeJoker bool) deck {
 			cards = append(cards, card)
 		}
 	}
+
 	// if includeJoker {
 	// 	cards = append(cards, "Z", "Z")
 	// }
 	return cards
+}
+
+func deal(d deck, handSize int) {
+	myHand := d[:handSize]
+	opponentsHand := d[handSize: handSize*2]
+	remainingDeck := d[handSize*2:]
+
+	fmt.Println(myHand)
+	fmt.Println(opponentsHand)
+	fmt.Println(remainingDeck)
 }
 
 func (d deck) print() {
