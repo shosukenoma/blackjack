@@ -48,6 +48,12 @@ func deal(d deck, handSize int) (deck, deck, deck){
 	return myHand, opponentsHand, remainingDeck
 }
 
+func hit(hand deck, remaining deck) (deck, deck){
+	hand = append(hand, remaining[0])
+	remaining = remaining[1:]
+	return hand, remaining
+}
+
 func (d deck) print() {
 	c := []string{}
 	for _, card := range d {

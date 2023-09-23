@@ -12,4 +12,11 @@ func main() {
 	myHand.print()
 	opponentsHand.print()
 	fmt.Println("Number of cards remaining in the deck:", len(remainingDeck))
+	fmt.Println()
+
+	myHand, remainingDeck = hit(myHand, remainingDeck)
+	myHand.print()
+	opponentsHand.print()
+	fmt.Println("Number of cards remaining in the deck:", len(remainingDeck))
+	fmt.Println()
 }
