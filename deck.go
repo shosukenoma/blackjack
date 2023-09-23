@@ -40,18 +40,18 @@ func (d deck)shuffle() {
 	}
 }
 
-func deal(d deck, handSize int) {
+func deal(d deck, handSize int) (deck, deck, deck){
 	myHand := d[:handSize]
 	opponentsHand := d[handSize: handSize*2]
 	remainingDeck := d[handSize*2:]
 
-	fmt.Println(myHand)
-	fmt.Println(opponentsHand)
-	fmt.Println(remainingDeck)
+	return myHand, opponentsHand, remainingDeck
 }
 
 func (d deck) print() {
-	for i, card := range d {
-		fmt.Println(i, card)
+	c := []string{}
+	for _, card := range d {
+		c = append(c, "{", card.suit, card.rank, "}")
 	}
+	fmt.Println(c)
 }
