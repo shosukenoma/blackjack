@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
 	cards := newDeck(false)
 	cards.shuffle()
@@ -7,5 +11,5 @@ func main() {
 
 	myHand.print()
 	opponentsHand.print()
-	remainingDeck.print()
+	fmt.Println("Number of cards remaining in the deck:", len(remainingDeck))
 }
